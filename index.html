@@ -1,64 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Bio no Instagram</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #3498db; /* Azul agradável */
-            color: #fff; /* Cor do texto para melhor contraste */
-            text-align: center;
-            margin: 20px;
-        }
-        .bio-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .button {
-            display: block;
-            width: 80%;
-            max-width: 200px;
-            padding: 10px;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #fff;
-            background-color: #55acee; /* Azul claro para Twitter */
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #2795e9; /* Tom mais escuro ao passar o mouse */
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daniel Sardi Guedes | Links</title>
+  <style>
+    :root {
+      --primary: rgb(248, 197, 55);
+      --accent: #fa5a9b;
+      --bg-dark: #151615;
+      --bg-deep: #151c5e;
+      --text-light: #fbcdb1;
+      --text-dark: #45145e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, var(--bg-dark), var(--bg-deep));
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+
+      /* Borda borrada glow amarelo */
+      box-shadow: 0 0 15px 5px rgba(248, 197, 55, 0.6);
+      border: 3px solid rgba(248, 197, 55, 0.4);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #fff; /* título em branco */
+      margin-bottom: 10px;
+    }
+
+    .bio {
+      font-size: 1rem;
+      color: #fff; /* bio em branco */
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #shareBtn {
+      background: var(--primary);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      color: var(--bg-dark);
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    #shareBtn:hover {
+      background: var(--accent);
+    }
+
+    .link-list {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link-list a {
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--bg-dark);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .link-list a:hover {
+      background: var(--primary);
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.85rem;
+      color: #fff; /* rodapé branco */
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .link-list a {
+        font-size: 0.95rem;
+        padding: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="bio-container">
-        <h1>Daniel Sardi Guedes</h1>
-        <p>Redes Sociais</p>
-        <div class="button-container">
-            <a class="button" href="https://www.instagram.com/danielsardiguedes/" target="_blank" style="background-color: #e4405f;">Instagram</a>
-            <a class="button" href="https://www.facebook.com/daniel.sardi.7/" target="_blank" style="background-color: #3b5998;">Facebook</a>
-            <a class="button" href="https://twitter.com/danisardiguedes" target="_blank">Twitter</a>
-            <!-- Adicione mais botões e links conforme necessário -->
-        </div>
-    </div>
+  <img class="avatar" src="img/3ebAAYugsfLEfd5MKco99koVg.jpg" alt="Foto do Daniel" />
+  <h1>@danielsardiguedes</h1>
+  <p class="bio">Criador de conteúdo, lives e ideias fora da caixa 🚀</p>
+
+  <div class="link-list">
+    <a href="https://www.youtube.com/@danielsardiguedes" target="_blank">🎥 YouTube</a>
+    <a href="https://livepix.gg/danielsardiguedes" target="_blank">💸 Apoie via LivePix</a>
+    <a href="https://www.instagram.com/danielsardiguedes/" target="_blank">📸 Instagram</a>
+    <a href="https://discord.com/invite/u4HY7jp46U" target="_blank">💬 Entre no Discord</a>
+  </div>
+  
+  <br>
+  
+  <button id="shareBtn">📤 Compartilhar</button>
+
+  <footer>
+    Feito com estilo por Daniel Sardi Guedes 💡
+  </footer>
+
+  <script>
+    const shareBtn = document.getElementById('shareBtn');
+
+    shareBtn.addEventListener('click', async () => {
+      const shareData = {
+        title: document.title,
+        text: 'Confira o site do Daniel Sardi Guedes!',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          console.log('Compartilhado com sucesso');
+        } catch (err) {
+          alert('Erro ao compartilhar');
+        }
+      } else {
+        // fallback: copia o link pro clipboard
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          alert('Link copiado para a área de transferência!');
+        } catch (err) {
+          alert('Não foi possível copiar o link. Copie manualmente: ' + window.location.href);
+        }
+      }
+    });
+  </script>
 </body>
 </html>
