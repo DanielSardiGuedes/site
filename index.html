@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Daniel Sardi Guedes | Links</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daniel Sardi Guedes | Links</title>
   <style>
     :root {
       --primary: rgb(248, 197, 55);
@@ -31,47 +31,39 @@
       min-height: 100vh;
     }
 
+    .countdown {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid var(--primary);
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+
     .avatar {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
-
-      /* Borda borrada glow amarelo */
       box-shadow: 0 0 15px 5px rgba(248, 197, 55, 0.6);
       border: 3px solid rgba(248, 197, 55, 0.4);
     }
 
     h1 {
       font-size: 1.8rem;
-      color: #fff; /* título em branco */
+      color: #fff;
       margin-bottom: 10px;
     }
 
     .bio {
       font-size: 1rem;
-      color: #fff; /* bio em branco */
+      color: var(--primary);
       text-align: center;
       margin-bottom: 30px;
-    }
-
-    #shareBtn {
-      background: var(--primary);
-      border: none;
-      padding: 12px 25px;
-      border-radius: 12px;
-      color: var(--bg-dark);
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
-      margin-bottom: 20px;
-    }
-
-    #shareBtn:hover {
-      background: var(--accent);
     }
 
     .link-list {
@@ -100,10 +92,29 @@
       transform: scale(1.05);
     }
 
+    #shareBtn {
+      background: var(--primary);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      color: var(--bg-dark);
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+    #shareBtn:hover {
+      background: var(--accent);
+    }
+
     footer {
       margin-top: 50px;
       font-size: 0.85rem;
-      color: #fff; /* rodapé branco */
+      color: #fff;
       text-align: center;
     }
 
@@ -116,10 +127,20 @@
         font-size: 0.95rem;
         padding: 12px;
       }
+
+      .countdown {
+        font-size: 1rem;
+        padding: 10px 15px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="countdown" id="countdown">
+    🔴 Live começa em: carregando...
+  </div>
+
   <img class="avatar" src="img/3ebAAYugsfLEfd5MKco99koVg.jpg" alt="Foto do Daniel" />
   <h1>@danielsardiguedes</h1>
   <p class="bio">Criador de conteúdo, lives e ideias fora da caixa 🚀</p>
@@ -130,9 +151,7 @@
     <a href="https://www.instagram.com/danielsardiguedes/" target="_blank">📸 Instagram</a>
     <a href="https://discord.com/invite/u4HY7jp46U" target="_blank">💬 Entre no Discord</a>
   </div>
-  
-  <br>
-  
+
   <button id="shareBtn">📤 Compartilhar</button>
 
   <footer>
@@ -140,8 +159,32 @@
   </footer>
 
   <script>
-    const shareBtn = document.getElementById('shareBtn');
+    // --- CONTADOR ---
+    const countdownEl = document.getElementById('countdown');
+    const liveDate = new Date("2025-06-24T09:30:00"); // <-- EDITA AQUI A DATA/HORA DA LIVE
 
+    function updateCountdown() {
+      const now = new Date();
+      const diff = liveDate - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = '🔴 A live já começou!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `🔴 Live começa em: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // --- BOTÃO DE COMPARTILHAR ---
+    const shareBtn = document.getElementById('shareBtn');
     shareBtn.addEventListener('click', async () => {
       const shareData = {
         title: document.title,
@@ -157,7 +200,6 @@
           alert('Erro ao compartilhar');
         }
       } else {
-        // fallback: copia o link pro clipboard
         try {
           await navigator.clipboard.writeText(window.location.href);
           alert('Link copiado para a área de transferência!');
